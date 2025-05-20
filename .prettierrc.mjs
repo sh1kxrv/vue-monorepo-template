@@ -1,2 +1,1 @@
-import cfg from "@mono/prettier-config";
-export default cfg;
+export { default } from '@mono/prettier-config';
