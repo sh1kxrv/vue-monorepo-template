@@ -3,7 +3,7 @@ import { TestUI } from '@mono/shared'
 </script>
 
 <template>
-  <p class="text-32">Test: asd</p>
+  <p class="text-44 text-yellow">Test: asd</p>
   <TestUI />
 </template>
 

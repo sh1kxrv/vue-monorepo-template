@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 
-@config './tailwind.config.mjs';
+@config '@mono/tailwind-config';
 
 @theme {
   --color-white: #ffffff;

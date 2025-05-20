@@ -6,6 +6,5 @@ import Test from '#/components/test.vue'
 
 <template>
   <RouterView />
-  <p class="text-2xl text-red-400">dasd</p>
   <Test />
 </template>

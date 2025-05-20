@@ -2,7 +2,6 @@ import type { PluginOption } from 'vite';
 
 import type { CommonPluginOptions, ConditionPlugin } from '../types/config';
 
-import tailwindcss from '@tailwindcss/vite';
 import viteVue from '@vitejs/plugin-vue';
 import viteVueJsx from '@vitejs/plugin-vue-jsx';
 import { visualizer as viteVisualizerPlugin } from 'rollup-plugin-visualizer';
@@ -15,7 +14,6 @@ export async function loadCommonPlugins(
     {
       condition: true,
       plugins: () => [
-        tailwindcss(),
         viteVue({
           script: {
             defineModel: true,

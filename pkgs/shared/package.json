@@ -10,9 +10,6 @@
   "files": [
     "dist"
   ],
-  "sideEffects": [
-    "**/*.css"
-  ],
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
   "exports": {
@@ -24,7 +21,6 @@
   },
   "dependencies": {
     "@tailwindcss/postcss": "catalog:",
-    "@tailwindcss/vite": "catalog:",
     "autoprefixer": "catalog:",
     "postcss": "catalog:",
     "tailwindcss": "catalog:",
