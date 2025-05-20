@@ -1,0 +1,60 @@
+@import 'tailwindcss';
+
+@config './tailwind.config.mjs';
+
+@theme {
+  --color-white: #ffffff;
+  --color-dark: #202020;
+  --color-border: #eeeeee;
+  --color-accent-border: #ebebeb;
+  --color-secondary: #6c757d;
+  --color-accent: #efefef;
+  --color-icon: #474747;
+  --color-gray-blue: #79b7bf;
+
+  --color-yellow: #ffdf66;
+
+  --color-primary-red: #ffdfdf;
+  --color-red-border: #f8d0d0;
+  --color-red-text: #c28282;
+
+  --color-dark-lake: #1b3846;
+
+  --shadow-block: 0px 4px 24px 2px rgba(32, 32, 32, 0.05);
+
+  /* Other */
+  --font-default: 'Manrope', sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  font-family: var(--font-default);
+  font-variant-numeric: lining-nums;
+  background-color: white;
+}
+
+body {
+  font-size: 1.6rem;
+  letter-spacing: 0.01em;
+  scroll-padding: auto;
+  scroll-timeline-axis: none y;
+}
+
+input,
+textarea,
+select {
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background-color: #d6d6d6;
+}

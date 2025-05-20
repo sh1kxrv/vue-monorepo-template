@@ -1,0 +1,42 @@
+{
+  "name": "@mono/vite-config",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "stub": "pnpm unbuild --stub"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./dist/index.mjs"
+    }
+  },
+  "dependencies": {
+    "resolve.exports": "catalog:",
+    "tailwindcss": "catalog:"
+  },
+  "devDependencies": {
+    "@mono/node-utils": "workspace:*",
+    "@pnpm/workspace.read-manifest": "catalog:",
+    "@tailwindcss/vite": "catalog:",
+    "@vitejs/plugin-vue": "catalog:",
+    "@vitejs/plugin-vue-jsx": "catalog:",
+    "dayjs": "catalog:",
+    "dotenv": "catalog:",
+    "rollup": "catalog:",
+    "rollup-plugin-visualizer": "catalog:",
+    "sass": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-compression": "catalog:",
+    "vite-plugin-dts": "catalog:",
+    "vite-plugin-lazy-import": "catalog:"
+  }
+}

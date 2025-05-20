@@ -1,0 +1,27 @@
+{
+  "name": "@mono/anyproj",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm vite --mode development",
+    "build": "pnpm vite build --mode production",
+    "preview": "vite preview",
+    "type-check": "vue-tsc --build",
+    "lint:oxlint": "oxlint . --fix -D correctness --ignore-path .gitignore",
+    "lint:eslint": "eslint . --fix",
+    "lint": "run-s lint:*",
+    "format": "prettier --write src/"
+  },
+  "imports": {
+    "#/*": "./src/*"
+  },
+  "dependencies": {
+    "@mono/shared": "workspace:*",
+    "@tailwindcss/postcss": "catalog:",
+    "pinia": "catalog:",
+    "postcss": "catalog:",
+    "tailwindcss": "catalog:",
+    "vue": "catalog:",
+    "vue-router": "catalog:"
+  }
+}
