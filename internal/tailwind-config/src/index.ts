@@ -32,7 +32,7 @@ export default {
     ...tailwindPackages.map((item) =>
       path.join(item, 'src/**/*.{vue,js,ts,jsx,tsx,svelte,astro,html}'),
     ),
-    '../../../pkgs/shared/**/*',
+    '../../../pkgs/**/*',
   ],
   theme: {
     extend: {
