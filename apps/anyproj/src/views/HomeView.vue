@@ -1,11 +1,5 @@
-<script setup lang="ts">
-import { ref } from 'vue'
+<script setup lang="ts"></script>
 
-const t = ref(1)
-</script>
-
-<template>
-  <p>Home -> {{ t }}</p>
-</template>
+<template></template>
 
 <style lang="scss" scoped></style>
