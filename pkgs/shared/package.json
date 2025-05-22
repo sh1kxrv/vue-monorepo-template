@@ -3,20 +3,13 @@
   "version": "1.0.0",
   "license": "MIT",
   "type": "module",
-  "scripts": {
-    "build": "pnpm vite build",
-    "stub": "pnpm unbuild --stub"
-  },
-  "files": [
-    "dist"
-  ],
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
   "exports": {
     ".": {
       "types": "./src/index.ts",
       "development": "./src/index.ts",
-      "default": "./dist/index.mjs"
+      "default": "./src/index.ts"
     }
   },
   "dependencies": {

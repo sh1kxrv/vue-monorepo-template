@@ -1,7 +1,5 @@
-import { b } from '#/utils/aaa';
-
 export * from './utils/middleware';
 
 export function test() {
-  return 'HI!' + b() * 2;
+  return [1, 2, 4, 5];
 }
