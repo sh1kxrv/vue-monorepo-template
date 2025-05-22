@@ -3,10 +3,14 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build": "cross-env NODE_OPTIONS=--max-old-space-size=8192 turbo build",
+    "build:analyze": "turbo build:analyze",
+    "build:app": "pnpm -F @mono/anyproj run build",
     "postinstall": "pnpm -r run stub --if-present",
     "preinstall": "npx only-allow pnpm",
     "clean": "node ./scripts/clean.mjs",
-    "dev": "turbo-run dev"
+    "dev": "turbo-run dev",
+    "dev:app": "pnpm -F @mono/anyproj run dev"
   },
   "devDependencies": {
     "@mono/eslint-config": "workspace:*",

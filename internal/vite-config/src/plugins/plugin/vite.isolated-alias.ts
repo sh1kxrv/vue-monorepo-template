@@ -1,7 +1,7 @@
 import { type Plugin } from 'vite';
 import { findMonorepoRoot, getMonorepoPackagesSync } from '@mono/node-utils';
 import { join } from 'node:path';
-import { existsSync, statSync } from 'node:fs';
+import { existsSync } from 'node:fs';
 
 export function useIsolatedAlias() {
   const rootWorkspace = findMonorepoRoot(process.cwd());
