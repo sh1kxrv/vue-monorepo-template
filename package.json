@@ -19,7 +19,7 @@
     "@vitejs/plugin-vue": "catalog:",
     "autoprefixer": "catalog:",
     "cssnano": "catalog:",
-    "oxlint": "^0.16.10",
+    "oxlint": "catalog:",
     "rimraf": "catalog:",
     "tailwindcss": "catalog:",
     "turbo": "catalog:",
