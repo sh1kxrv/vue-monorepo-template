@@ -18,4 +18,7 @@ export default defineBuildConfig({
       pattern: ['**/*.ts'],
     },
   ],
+  alias: {
+    '#/*': './src/*',
+  },
 });

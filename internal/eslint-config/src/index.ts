@@ -17,6 +17,7 @@ import {
   unicorn,
   vue,
 } from './configs';
+import { oxlint } from './configs/oxlint';
 import { customConfig } from './custom-config';
 
 type FlatConfig = Linter.Config;
@@ -44,6 +45,7 @@ async function defineConfig(config: FlatConfig[] = []) {
     unicorn(),
     command(),
     turbo(),
+    oxlint(),
     ...customConfig,
     ...config,
   ];

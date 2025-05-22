@@ -5,12 +5,7 @@
   "scripts": {
     "dev": "pnpm vite --mode development",
     "build": "pnpm vite build --mode production",
-    "preview": "vite preview",
-    "type-check": "vue-tsc --build",
-    "lint:oxlint": "oxlint . --fix -D correctness --ignore-path .gitignore",
-    "lint:eslint": "eslint . --fix",
-    "lint": "run-s lint:*",
-    "format": "prettier --write src/"
+    "preview": "vite preview"
   },
   "imports": {
     "#/*": "./src/*"

@@ -21,6 +21,10 @@
   },
   "dependencies": {
     "tailwindcss": "catalog:",
-    "vue": "catalog:"
+    "vue": "catalog:",
+    "vue-router": "catalog:"
+  },
+  "devDependencies": {
+    "typescript": "catalog:"
   }
 }

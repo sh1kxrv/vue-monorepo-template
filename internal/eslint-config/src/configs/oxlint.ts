@@ -1,10 +1,10 @@
-import type { Linter } from "eslint";
+import type { Linter } from 'eslint';
 
-import { interopDefault } from "../util";
+import { interopDefault } from '../util';
 
 export async function oxlint(): Promise<Linter.Config[]> {
   const [pluginOxlint] = await Promise.all([
-    interopDefault(import("eslint-plugin-oxlint")),
+    interopDefault(import('eslint-plugin-oxlint')),
   ] as const);
 
   return [
@@ -12,7 +12,7 @@ export async function oxlint(): Promise<Linter.Config[]> {
       plugins: {
         oxlint: pluginOxlint,
       },
-      ...pluginOxlint.configs["flat/recommended"],
+      ...pluginOxlint.configs['flat/recommended'],
     },
   ];
 }

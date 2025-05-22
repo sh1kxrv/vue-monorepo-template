@@ -1,5 +1,7 @@
 <script setup lang="ts"></script>
 
-<template></template>
+<template>
+  <p>Home</p>
+</template>
 
 <style lang="scss" scoped></style>
