@@ -10,6 +10,9 @@
   "imports": {
     "#/*": "./src/*"
   },
+  "devDependencies": {
+    "@mono/node-utils": "workspace:*"
+  },
   "dependencies": {
     "@mono/shared": "workspace:*",
     "pinia": "catalog:",

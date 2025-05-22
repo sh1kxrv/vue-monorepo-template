@@ -260,6 +260,10 @@ importers:
       vue-router:
         specifier: 'catalog:'
         version: 4.5.1(vue@3.5.14(typescript@5.8.3))
+    devDependencies:
+      '@mono/node-utils':
+        specifier: workspace:*
+        version: link:../../internal/node-utils
 
   internal/eslint-config:
     dependencies:

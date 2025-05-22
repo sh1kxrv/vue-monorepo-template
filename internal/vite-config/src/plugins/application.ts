@@ -6,6 +6,7 @@ import viteCompressPlugin from 'vite-plugin-compression';
 
 import { loadConditionPlugins } from '.';
 import { loadCommonPlugins } from './common';
+import { useIsolatedAlias } from './plugin/vite.isolated-alias';
 
 export async function loadApplicationPlugins(
   options: ApplicationPluginOptions,
@@ -18,6 +19,10 @@ export async function loadApplicationPlugins(
 
   return await loadConditionPlugins([
     ...commonPlugins,
+    {
+      condition: true,
+      plugins: () => [useIsolatedAlias()],
+    },
     {
       condition: isBuild && !!compress,
       plugins: () => {
