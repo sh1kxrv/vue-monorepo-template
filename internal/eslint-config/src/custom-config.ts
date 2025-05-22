@@ -1,31 +1,30 @@
-import type { Linter } from "eslint";
+import type { Linter } from 'eslint';
 
 const restrictedImportIgnores = [
-  "**/vite.config.mts",
-  "**/tailwind.config.mjs",
-  "**/postcss.config.mjs",
+  '**/vite.config.mts',
+  '**/tailwind.config.mjs',
 ];
 
 const customConfig: Linter.Config[] = [
   {
-    files: ["apps/**/**"],
+    files: ['apps/**/**'],
     ignores: restrictedImportIgnores,
     rules: {
-      "perfectionist/sort-interfaces": "off",
-      "perfectionist/sort-objects": "off",
+      'perfectionist/sort-interfaces': 'off',
+      'perfectionist/sort-objects': 'off',
     },
   },
   {
-    files: ["**/**.vue"],
+    files: ['**/**.vue'],
     ignores: restrictedImportIgnores,
     rules: {
-      "perfectionist/sort-objects": "off",
+      'perfectionist/sort-objects': 'off',
     },
   },
   {
-    files: ["internal/**/**", "scripts/**/**"],
+    files: ['internal/**/**', 'scripts/**/**'],
     rules: {
-      "no-console": "off",
+      'no-console': 'off',
     },
   },
 ];

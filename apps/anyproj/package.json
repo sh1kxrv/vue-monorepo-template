@@ -17,9 +17,7 @@
   },
   "dependencies": {
     "@mono/shared": "workspace:*",
-    "@tailwindcss/postcss": "catalog:",
     "pinia": "catalog:",
-    "postcss": "catalog:",
     "tailwindcss": "catalog:",
     "vue": "catalog:",
     "vue-router": "catalog:"

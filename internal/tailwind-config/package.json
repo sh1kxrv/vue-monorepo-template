@@ -27,11 +27,6 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     },
-    "./postcss": {
-      "import": "./dist/postcss.config.mjs",
-      "require": "./dist/postcss.config.cjs",
-      "default": "./dist/postcss.config.mjs"
-    },
     "./*": "./*"
   },
   "peerDependencies": {
@@ -39,15 +34,6 @@
   },
   "dependencies": {
     "@manypkg/get-packages": "catalog:",
-    "@tailwindcss/postcss": "catalog:",
-    "autoprefixer": "catalog:",
-    "cssnano": "catalog:",
-    "postcss": "catalog:",
-    "postcss-import": "catalog:",
-    "postcss-preset-env": "catalog:",
     "tailwindcss": "catalog:"
-  },
-  "devDependencies": {
-    "@types/postcss-import": "catalog:"
   }
 }

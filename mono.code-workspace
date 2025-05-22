@@ -1,36 +1,40 @@
 {
   "folders": [
     {
+      "name": "+ROOT",
+      "path": "."
+    },
+    {
       "name": "APP | AnyProj",
-      "path": "./apps/anyproj",
+      "path": "./apps/anyproj"
     },
     {
       "name": "PKG | Shared",
-      "path": "./pkgs/shared",
+      "path": "./pkgs/shared"
     },
     {
       "name": "INTERNAL | ESLint",
-      "path": "./internal/eslint-config",
+      "path": "./internal/eslint-config"
     },
     {
       "name": "INTERNAL | Prettier",
-      "path": "./internal/prettier-config",
+      "path": "./internal/prettier-config"
     },
     {
       "name": "INTERNAL | Tailwind",
-      "path": "./internal/tailwind-config",
+      "path": "./internal/tailwind-config"
     },
     {
       "name": "INTERNAL | TSConfig",
-      "path": "./internal/tsconfig",
+      "path": "./internal/tsconfig"
     },
     {
       "name": "INTERNAL | Vite",
-      "path": "./internal/vite-config",
+      "path": "./internal/vite-config"
     },
     {
       "name": "SCRIPT | Turbo Run",
-      "path": "./scripts/turbo-run",
-    },
-  ],
+      "path": "./scripts/turbo-run"
+    }
+  ]
 }
