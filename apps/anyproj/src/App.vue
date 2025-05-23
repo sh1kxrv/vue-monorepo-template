@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { RouterView, useRoute } from 'vue-router'
 import LayoutDefault from '#/layouts/layout.default.vue'
+
+import { RouterView, useRoute } from 'vue-router'
+import { computed } from 'vue'
 
 const route = useRoute()
 
