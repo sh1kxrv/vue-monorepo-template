@@ -15,7 +15,11 @@
   "dependencies": {
     "tailwindcss": "catalog:",
     "vue": "catalog:",
-    "vue-router": "catalog:"
+    "vue-router": "catalog:",
+    "@vueuse/core": "catalog:",
+    "pinia": "catalog:",
+    "axios": "catalog:",
+    "@tanstack/vue-query": "catalog:"
   },
   "devDependencies": {
     "typescript": "catalog:"

@@ -18,6 +18,7 @@
     "pinia": "catalog:",
     "tailwindcss": "catalog:",
     "vue": "catalog:",
-    "vue-router": "catalog:"
+    "vue-router": "catalog:",
+    "@tanstack/vue-query": "catalog:"
   }
 }

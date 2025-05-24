@@ -1,1 +1,1 @@
-export * from './utils/middleware';
+export * from './utils';
