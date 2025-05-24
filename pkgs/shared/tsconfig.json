@@ -3,6 +3,9 @@
   "extends": "@mono/tsconfig/web.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "noEmit": false,
+    "composite": true,
+    "declaration": true,
     "paths": {
       "#/*": ["./src/*"]
     }

@@ -7,6 +7,11 @@
       "#/*": ["./src/*"]
     }
   },
-  "references": [{ "path": "./tsconfig.node.json" }],
+  "references": [
+    { "path": "./tsconfig.node.json" },
+    {
+      "path": "../../pkgs/shared"
+    }
+  ],
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
 }
