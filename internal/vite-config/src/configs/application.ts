@@ -33,6 +33,15 @@ function defineApplicationConfig(userConfigPromise?: DefineApplicationOptions) {
             assetFileNames: "[ext]/[name]-[hash].[ext]",
             chunkFileNames: "js/[name]-[hash].js",
             entryFileNames: "jse/index-[name]-[hash].js",
+            manualChunks(id: string) {
+              if (id.includes("zod") || id.includes("vee-validate")) {
+                return "validation";
+              } else if (id.includes("nouislider") || id.includes("swiper")) {
+                return "ui";
+              } else if (id.includes("node_modules")) {
+                return "vendor";
+              }
+            },
           },
         },
         target: "es2015",
