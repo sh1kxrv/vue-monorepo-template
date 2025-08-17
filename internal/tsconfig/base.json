@@ -5,13 +5,10 @@
     "composite": false,
     "target": "ESNext",
 
-    "moduleDetection": "force",
     "experimentalDecorators": true,
 
-    "baseUrl": ".",
-    "module": "ESNext",
-
-    "moduleResolution": "node",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
 
     "strict": true,
@@ -34,7 +31,15 @@
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
     "skipLibCheck": true,
-    "preserveWatchOutput": true
+    "preserveWatchOutput": true,
+
+    "plugins": [
+      {
+        "name": "ts-plugin-sort-import-suggestions",
+        "moveUpPatterns": ["@/", "\\.{1,2}/", "#/"],
+        "moveDownPatterns": ["dist", "node_modules"]
+      }
+    ]
   },
   "exclude": ["**/node_modules/**", "**/dist/**", "**/.turbo/**"]
 }

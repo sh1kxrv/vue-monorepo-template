@@ -13,6 +13,7 @@
     "dev:app": "pnpm -F @mono/anyproj run dev"
   },
   "devDependencies": {
+    "ts-plugin-sort-import-suggestions": "1.0.4",
     "@mono/eslint-config": "workspace:*",
     "@mono/prettier-config": "workspace:*",
     "@mono/tailwind-config": "workspace:*",
