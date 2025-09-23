@@ -10,6 +10,16 @@
       "types": "./src/index.ts",
       "development": "./src/index.ts",
       "default": "./src/index.ts"
+    },
+    "./api": {
+      "types": "./src/api/index.ts",
+      "development": "./src/api/index.ts",
+      "default": "./src/api/index.ts"
+    },
+    "./types": {
+      "types": "./src/types/index.ts",
+      "development": "./src/types/index.ts",
+      "default": "./src/types/index.ts"
     }
   },
   "dependencies": {
