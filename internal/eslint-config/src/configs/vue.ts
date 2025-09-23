@@ -19,7 +19,7 @@ export async function vue(): Promise<Linter.Config[]> {
     ...flatStronglyRecommended,
     ...flatRecommended,
     {
-      files: ["**/*.vue"],
+      files: ["**/*.vue", "**/*.ts"],
       languageOptions: {
         parser: parserVue,
         parserOptions: {
@@ -55,7 +55,7 @@ export async function vue(): Promise<Linter.Config[]> {
         "vue/component-name-in-template-casing": ["error", "PascalCase"],
         "vue/component-options-name-casing": ["error", "PascalCase"],
         "vue/custom-event-name-casing": [
-          "warning",
+          "warn",
           "kebab-case",
           {
             ignores: ["/^[a-z]+(?:-[a-z]+)*:[a-z]+(?:-[a-z]+)*$/u"],
