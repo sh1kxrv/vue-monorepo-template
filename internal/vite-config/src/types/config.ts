@@ -13,6 +13,7 @@ interface CommonPluginOptions {
 interface ApplicationPluginOptions extends CommonPluginOptions {
   compress?: boolean;
   compressTypes?: ("brotli" | "gzip")[];
+  https?: boolean;
   injectGlobalScss?: boolean;
 }
 

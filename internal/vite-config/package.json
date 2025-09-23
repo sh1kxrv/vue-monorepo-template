@@ -24,6 +24,7 @@
     "tailwindcss": "catalog:"
   },
   "devDependencies": {
+    "@vitejs/plugin-basic-ssl": "latest",
     "@mono/node-utils": "workspace:*",
     "@pnpm/workspace.read-manifest": "catalog:",
     "@tailwindcss/vite": "catalog:",

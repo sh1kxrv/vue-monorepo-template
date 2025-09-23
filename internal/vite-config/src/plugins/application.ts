@@ -1,22 +1,24 @@
-import type { PluginOption } from 'vite'
+import type { PluginOption } from "vite";
 
-import type { ApplicationPluginOptions } from '../types/config'
+import type { ApplicationPluginOptions } from "../types/config";
 
-import viteCompressPlugin from 'vite-plugin-compression'
+import viteCompressPlugin from "vite-plugin-compression";
 
-import { loadConditionPlugins } from '.'
-import { loadCommonPlugins } from './common'
-import { useIsolatedAlias } from './plugin/vite.isolated-alias'
-import tailwindcss from '@tailwindcss/vite'
+import { loadConditionPlugins } from ".";
+import { loadCommonPlugins } from "./common";
+import { useIsolatedAlias } from "./plugin/vite.isolated-alias";
+import tailwindcss from "@tailwindcss/vite";
+
+import basicSsl from "@vitejs/plugin-basic-ssl";
 
 export async function loadApplicationPlugins(
-  options: ApplicationPluginOptions,
+  options: ApplicationPluginOptions
 ): Promise<PluginOption[]> {
-  const isBuild = options.isBuild
+  const isBuild = options.isBuild;
 
-  const { compress, compressTypes, ...commonOptions } = options
+  const { compress, compressTypes, ...commonOptions } = options;
 
-  const commonPlugins = await loadCommonPlugins(commonOptions)
+  const commonPlugins = await loadCommonPlugins(commonOptions);
 
   return await loadConditionPlugins([
     ...commonPlugins,
@@ -25,21 +27,25 @@ export async function loadApplicationPlugins(
       plugins: () => [useIsolatedAlias(), tailwindcss()],
     },
     {
+      condition: options.https,
+      plugins: () => [basicSsl()],
+    },
+    {
       condition: isBuild && !!compress,
       plugins: () => {
-        const compressPlugins: PluginOption[] = []
-        if (compressTypes?.includes('brotli')) {
+        const compressPlugins: PluginOption[] = [];
+        if (compressTypes?.includes("brotli")) {
           compressPlugins.push(
-            viteCompressPlugin({ deleteOriginFile: false, ext: '.br' }),
-          )
+            viteCompressPlugin({ deleteOriginFile: false, ext: ".br" })
+          );
         }
-        if (compressTypes?.includes('gzip')) {
+        if (compressTypes?.includes("gzip")) {
           compressPlugins.push(
-            viteCompressPlugin({ deleteOriginFile: false, ext: '.gz' }),
-          )
+            viteCompressPlugin({ deleteOriginFile: false, ext: ".gz" })
+          );
         }
-        return compressPlugins
+        return compressPlugins;
       },
     },
-  ])
+  ]);
 }
