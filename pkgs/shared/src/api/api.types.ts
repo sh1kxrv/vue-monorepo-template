@@ -1,6 +1,4 @@
-type Prettify<T> = {
-  [K in keyof T]: T[K];
-} & {};
+import { Prettify } from "#/types";
 
 type ParamLiteral = string | number | boolean | null;
 
@@ -37,14 +35,14 @@ export type FetchBaseOptions = {
 };
 
 export type FetchOptions<
-  TParams = Record<string, string | number>,
+  TParams = Record<string, ParamLiteral>,
   TQuery = Record<string, any>,
   TBody = Record<string, any>
-> = {
-  queries?: TQuery;
-  body?: TBody;
-  params?: TParams;
-};
+> = Partial<{
+  params: TParams;
+  queries: TQuery;
+  body: TBody;
+}>;
 
 export type AllowedFetchHttpMethods =
   | "GET"
