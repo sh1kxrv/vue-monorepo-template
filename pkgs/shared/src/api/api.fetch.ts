@@ -4,6 +4,7 @@ import type {
   FetchOptions,
   Interceptor,
   InterceptorResponse,
+  ResolvePath,
 } from "#/api/api.types";
 import { parseParams, parseQueries } from "#/api/utils/api.utils";
 
@@ -18,12 +19,12 @@ export class ApiFetchError extends Error {
   }
 }
 
-export function createFetch(
-  baseUrl: string,
+export function createFetch<const BaseURL extends string>(
+  baseUrl: BaseURL,
   { baseHeaders }: FetchBaseOptions = {}
 ) {
   baseHeaders = baseHeaders || {};
-  baseUrl = baseUrl || "";
+  baseUrl = baseUrl || ("" as BaseURL);
 
   const _interceptorsRequest = [] as Interceptor[];
   const _interceptorsResponse = [] as InterceptorResponse[];
@@ -71,7 +72,7 @@ export function createFetch(
       if (queries) url = parseQueries(url, queries);
 
       let requestBody = undefined;
-      if (method === "POST" || method === "PATCH") {
+      if (method === "POST" || method === "PATCH" || method === "PUT") {
         requestBody =
           body instanceof FormData ? body : JSON.stringify(body || {});
       }
@@ -117,6 +118,7 @@ export function createFetch(
   const post = makeRequest("POST");
   const patch = makeRequest("PATCH");
   const $delete = makeRequest("DELETE");
+  const put = makeRequest("PUT");
 
   const intercept = (interceptor: Interceptor) => {
     _interceptorsRequest.push(interceptor);
@@ -124,6 +126,52 @@ export function createFetch(
 
   const interceptResponse = (interceptor: InterceptorResponse) => {
     _interceptorsResponse.push(interceptor);
+  };
+
+  type Return = {
+    intercept: typeof intercept;
+    interceptResponse: typeof interceptResponse;
+    get: <T, const PathURL extends string, TQuery = Record<string, any>>(
+      url: PathURL,
+      options?: Omit<
+        FetchOptions<ResolvePath<`${BaseURL}${PathURL}`>, TQuery>,
+        "body"
+      >
+    ) => Promise<T>;
+    post: <
+      T,
+      const PathURL extends string,
+      TQuery = Record<string, any>,
+      TBody = Record<string, any>
+    >(
+      url: PathURL,
+      options?: FetchOptions<ResolvePath<`${BaseURL}${PathURL}`>, TQuery, TBody>
+    ) => Promise<T>;
+    patch: <
+      T,
+      const PathURL extends string,
+      TQuery = Record<string, any>,
+      TBody = Record<string, any>
+    >(
+      url: PathURL,
+      options?: FetchOptions<ResolvePath<`${BaseURL}${PathURL}`>, TQuery, TBody>
+    ) => Promise<T>;
+    delete: <T, const PathURL extends string, TQuery = Record<string, any>>(
+      url: PathURL,
+      options?: Omit<
+        FetchOptions<ResolvePath<`${BaseURL}${PathURL}`>, TQuery>,
+        "body"
+      >
+    ) => Promise<T>;
+    put: <
+      T,
+      const PathURL extends string,
+      TQuery = Record<string, any>,
+      TBody = Record<string, any>
+    >(
+      url: PathURL,
+      options?: FetchOptions<ResolvePath<`${BaseURL}${PathURL}`>, TQuery, TBody>
+    ) => Promise<T>;
   };
 
   return {
@@ -134,17 +182,8 @@ export function createFetch(
     post,
     patch,
     delete: $delete,
-  } as {
-    intercept: typeof intercept;
-    interceptResponse: typeof interceptResponse;
-    get: <T>(url: string, options?: Omit<FetchOptions, "body">) => Promise<T>;
-    post: <T>(url: string, options?: FetchOptions) => Promise<T>;
-    patch: <T>(url: string, options?: FetchOptions) => Promise<T>;
-    delete: <T>(
-      url: string,
-      options?: Omit<FetchOptions, "body">
-    ) => Promise<T>;
-  };
+    put,
+  } as Return;
 }
 
 export function switchMethod(method: AllowedFetchHttpMethods) {
