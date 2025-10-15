@@ -7,7 +7,8 @@ import type {
   ResolvePath,
 } from '#/api/api.types'
 import { parseParams, parseQueries } from '#/api/utils/api.utils'
-import type z from 'zod'
+import { type TSchema, type Static } from '@sinclair/typebox'
+import z from 'zod'
 
 export class ApiFetchError extends Error {
   code: number
@@ -34,8 +35,8 @@ export function createFetch<const BaseURL extends string>(
     TMethod extends AllowedFetchHttpMethods = AllowedFetchHttpMethods,
   >(method: TMethod) {
     return async function <
-      const PathURL extends string,
-      const TResponse extends z.ZodObject,
+      TResponse extends TSchema | z.ZodObject,
+      PathURL extends string,
     >(
       url: PathURL,
       options: TMethod extends 'GET' | 'DELETE'
@@ -44,7 +45,16 @@ export function createFetch<const BaseURL extends string>(
             'body'
           >
         : FetchOptions<TResponse, ResolvePath<`${BaseURL}${PathURL}`>>,
-    ): Promise<z.infer<TResponse> | null> | never {
+    ):
+      | Promise<
+          | (TResponse extends z.ZodObject
+              ? z.infer<TResponse>
+              : never | TResponse extends TSchema
+                ? Static<TResponse>
+                : never)
+          | null
+        >
+      | never {
       const headers = {
         'Content-Type': 'application/json;charset=UTF-8',
         Accept: 'application/json',
