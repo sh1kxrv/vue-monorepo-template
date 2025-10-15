@@ -33,10 +33,10 @@ export function createFetch<const BaseURL extends string>(
     TMethod extends AllowedFetchHttpMethods = AllowedFetchHttpMethods
   >(method: TMethod) {
     return async function <
-      const PathURL extends string,
       TResponse = any,
       TQuery = Record<string, any>,
-      TBody = Record<string, any>
+      TBody = Record<string, any>,
+      const PathURL extends string = ""
     >(
       url: PathURL,
       options: TMethod extends "GET" | "DELETE"
