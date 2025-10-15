@@ -29,8 +29,8 @@
     "@vueuse/core": "catalog:",
     "pinia": "catalog:",
     "@tanstack/vue-query": "catalog:",
-    "@sinclair/typebox": "catalog:",
-    "zod": "catalog:"
+    "zod": "catalog:",
+    "typebox": "catalog:"
   },
   "devDependencies": {
     "typescript": "catalog:"

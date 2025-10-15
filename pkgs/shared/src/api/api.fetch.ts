@@ -7,7 +7,7 @@ import type {
   ResolvePath,
 } from '#/api/api.types'
 import { parseParams, parseQueries } from '#/api/utils/api.utils'
-import { type TSchema, type Static } from '@sinclair/typebox'
+import { type TSchema, type Static } from 'typebox'
 import z from 'zod'
 
 export class ApiFetchError extends Error {
