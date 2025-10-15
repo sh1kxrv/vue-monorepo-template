@@ -28,8 +28,8 @@
     "vue-router": "catalog:",
     "@vueuse/core": "catalog:",
     "pinia": "catalog:",
-    "axios": "catalog:",
-    "@tanstack/vue-query": "catalog:"
+    "@tanstack/vue-query": "catalog:",
+    "zod": "catalog:"
   },
   "devDependencies": {
     "typescript": "catalog:"
