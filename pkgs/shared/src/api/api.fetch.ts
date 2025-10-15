@@ -36,7 +36,7 @@ export function createFetch<const BaseURL extends string>(
       TResponse = any,
       TQuery = Record<string, any>,
       TBody = Record<string, any>,
-      const PathURL extends string = ""
+      const PathURL extends string = string
     >(
       url: PathURL,
       options: TMethod extends "GET" | "DELETE"
